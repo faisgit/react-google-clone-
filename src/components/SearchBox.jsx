@@ -2,17 +2,20 @@ import { Mic, Search } from "@mui/icons-material";
 import React, { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/contextApi";
-export const SearchBox = (props) => {
+import useFetchData from "../custom-hook/FetchData";
+export const SearchBox = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { inputValue, setInputValue } = useContext(UserContext);
+  const { inputValue, setInputValue,url,data } = useContext(UserContext);
+  const {GoogleSearchResult} =  useFetchData(url)
   return (
     <form
       className="flex  flex-col gap-4 "
       onSubmit={(e) => {
         e.preventDefault();
         navigate("/search");
-        // props.FetchData()
+        GoogleSearchResult()
+        console.log(data)
       }}
     >
       <div className="flex justify-center items-center border  border-solid border-[#DFE1E5] px-3 rounded-full">
