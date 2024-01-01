@@ -1,21 +1,16 @@
-import React from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
-import { Home } from './components/Home';
-import { Search } from './components/Search';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home";
+import { Search } from "./components/Search";
 const App = () => {
   return (
-   <Router>
+    <Router>
       <Routes>
-        <Route extact path='/' element={<Home />} />
-        <Route extact path='/search' element={<Search />} />
+        <Route extact path="/" element={<Home />} />
+        <Route extact path="/search" element={<Search />} />
       </Routes>
-   </Router>
-  )
-}
+    </Router>
+  );
+};
 
-export default App
+export default App;

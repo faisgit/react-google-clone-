@@ -1,40 +1,40 @@
 import React from "react";
 
 const SearchResult = ({ result }) => {
-  const { htmlTitle } = result;
+  const { title, displayLink, snippet, link, pagemap, cacheId } = result;
+  const imageUrl = pagemap?.cse_image?.[0]?.src;
+
+  console.log(imageUrl);
+
   return (
-    <div>
-      <a className="flex gap-3 items-center">
+    <div key={cacheId}>
+      <div
+        className="flex gap-3 items-center cursor-pointer"
+        onClick={() => {
+          window.open(link, "_blank");
+        }}
+      >
         <div className=" w-7 h-7 py-0 ">
-          <img src="https://i.pravatar.cc/300" className="rounded-full" />
+          {imageUrl && <img src={imageUrl} className="rounded-full" />}
+          {!imageUrl && (
+            <img src="https://i.pravatar.cc/300" className="rounded-full" />
+          )}
         </div>
         <div>
-          <h6 className="font-semibold text-sm">
-            {htmlTitle
-              .replace(/<[^>]+>/g, "")
-              .replace(/&amp;/g, "&")
-              .replace(/&lt;/g, "<")
-              .replace(/&gt;/g, ">")
-              .replace(/&quot;/g, '"')
-              .replace(/&#039;/g, "'")}
-          </h6>
-          <p className="text-sm">https://en.wikipedia.org</p>
+          <h6 className="font-semibold text-sm">{title}</h6>
+          <p className="text-sm">{displayLink}</p>
         </div>
-      </a>
+      </div>
 
       <div className="w-auto">
         <a
-          href="https://www.google.com"
+          href={link}
           target="_blank"
           className=" text-blue-800 hover:underline text-lg font-semibold"
         >
-          Wikipedia
+          {title}
         </a>
-        <p className="text-sm md:w-[40rem]">
-          Instagram is an American photo and video sharing social networking
-          service owned by Meta Platforms. It allows users to upload media that
-          can be edited with{" "}
-        </p>
+        <p className="text-sm md:w-[40rem]">{snippet}</p>
       </div>
     </div>
   );
