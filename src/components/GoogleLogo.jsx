@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { UserContext } from "../context/contextApi";
 
 export const GoogleLogo = () => {
   const location = useLocation();
+  const {themeMode} = useContext(UserContext)
   return (
     <div>
       <h1
@@ -11,12 +13,12 @@ export const GoogleLogo = () => {
         } mb-4 font-semibold`}
       >
         {" "}
-        <span className="text-[#4285F4]">G</span>
-        <span className="text-[#EA4335]">o</span>
-        <span className="text-[#FBBC05]">o</span>
-        <span className="text-[#4285F4]">g</span>
-        <span className="text-[#34A853]">l</span>
-        <span className="text-[#EA4335]">e</span>
+        <span className={` ${ themeMode === 'light' && 'text-[#4285F4]'} ${themeMode === 'dark' && 'text-white'}`}>G</span>
+        <span className={` ${ themeMode === 'light' && 'text-[#EA4335]'} ${themeMode === 'dark' && 'text-white'}`}>o</span>
+        <span className={` ${ themeMode === 'light' && 'text-[#FBBC05]'} ${themeMode === 'dark' && 'text-white'}`}>o</span>
+        <span className={` ${ themeMode === 'light' && 'text-[#4285F4]'} ${themeMode === 'dark' && 'text-white'}`}>g</span>
+        <span className={` ${ themeMode === 'light' && 'text-[#34A853]'} ${themeMode === 'dark' && 'text-white'}`}>l</span>
+        <span className={` ${ themeMode === 'light' && 'text-[#EA4335]'} ${themeMode === 'dark' && 'text-white'}`}>e</span>
       </h1>
     </div>
   );

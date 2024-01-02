@@ -6,7 +6,7 @@ import useFetchData from "../custom-hook/FetchData";
 export const SearchBox = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { inputValue, setInputValue, url, data } = useContext(UserContext);
+  const { inputValue, setInputValue, url, data, themeMode } = useContext(UserContext);
   const { GoogleSearchResult } = useFetchData(url);
   return (
     <form
@@ -18,12 +18,12 @@ export const SearchBox = () => {
         console.log(data);
       }}
     >
-      <div className="flex justify-center items-center border  border-solid border-[#DFE1E5] px-3 rounded-full">
+      <div className={`flex justify-center items-center border  border-solid ${ themeMode === 'dark' && 'border-[#2B3039]'} ${themeMode === 'light' && 'border-[#DFE1E5]'} px-3 rounded-full`}>
         <Search />
-        <div className=" mx-3">
+        <div className={`mx-3`} >
           <input
             type="text"
-            className="sm:w-[30rem] w-[65vw] h-10 px-3 outline-none "
+            className={`sm:w-[30rem] w-[60vw] h-10 px-3 outline-none ${themeMode === 'dark' && 'bg-[#1D242A]' } ${themeMode === 'light' && 'bg-white'}`}
             required
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}

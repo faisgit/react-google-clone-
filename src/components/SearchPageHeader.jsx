@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SearchBox } from "./SearchBox";
 import { GoogleLogo } from "./GoogleLogo";
 import { Apps, ScienceTwoTone, Settings } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/contextApi";
 export const SearchPageHeader = () => {
   const navigate  = useNavigate()
+  const {themeMode} = useContext(UserContext)
   return (
-    <nav className=" flex flex-col gap-3 px-3  border-b-[1px] border-solid border-b-gray-300 sticky top-0 bg-white mb-4 ">
+    <nav className={`flex flex-col gap-3 px-3  border-b-[1px] border-solid ${ themeMode === 'dark' && 'border-b-[#2B3039]'} ${themeMode === 'light' && 'border-b-[#DFE1E5]'}} sticky top-0  mb-4 ${themeMode === 'dark' && 'bg-[#1D242A]' } ${themeMode === 'light' && 'bg-white'} `}>
       <div className="flex flex-col md:flex-row justify-center md:justify-between items-center pt-4  ">
         <div className="flex flex-col md:flex-row justify-center md:justify-start items-center gap-3">
           <div className="flex justify-between   items-center w-full md:w-auto ">

@@ -2,10 +2,7 @@ import React from "react";
 
 const SearchResult = ({ result }) => {
   const { title, displayLink, snippet, link, pagemap, cacheId } = result;
-  const imageUrl = pagemap?.cse_image?.[0]?.src;
-
-  console.log(imageUrl);
-
+  const imageUrl = pagemap?.cse_thumbnail?.[0]?.src;
   return (
     <div key={cacheId}>
       <div
