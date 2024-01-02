@@ -4,8 +4,9 @@ export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
   const [inputValue, setInputValue] = useState("");
-  const API_KEY = "AIzaSyBjEMnxN3gJS0t1vNCws-5jAEnAlTTPzfw";
-  const url = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=1136cb66c567b4ae0&q=${inputValue}`;
+  const API_KEY = import.meta.env.VITE_MY_API_KEY;
+  const searchEngineId = import.meta.env.VITE_MY_SEARCH_ENGINE_ID
+  const url = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${searchEngineId}&q=${inputValue}`;
   const [data, setData] = useState([]);
   const [themeMode, setThemeMode] = useState("light");
   const darktheme = () => {
