@@ -16,10 +16,10 @@ This project is a clone of google search Engine. In this we use google custom se
 
 ### Screenshot
 
-![](./public/search-page-desktop.png)
-![](./public/search-result-page-desktop.png)
-![](./public/search-page-mobile.png)
-![](./public/search-result-page-mobile.png)
+![](public/search-page-desktop.png)
+![](public/search-result-page-desktop.png)
+![](/public/search-page-mobile.png)
+![](public/search-result-page-mobile.png)
 
 
 ### Links
